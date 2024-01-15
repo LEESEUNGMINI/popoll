@@ -1,0 +1,26 @@
+#grid_div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#secondGrid_div div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+#secondGrid_div {
+  width: 100%;
+}
+#secondGrid_div div img {
+  width: 100px;
+}
+#secondGrid_div div h2 {
+  font-size: 24px;
+  color: #107af2;
+}

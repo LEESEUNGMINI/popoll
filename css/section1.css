@@ -29,7 +29,7 @@
 #snap1 {
   background-image: url("../images/ev1.jpg");
 }
-#text_div1 {
+.text_div1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,17 +41,16 @@
   background-image: url("../images/ev3.jpg");
 }
 
-#section1 #text_div1 {
-}
-#section1 h2 {
+
+section h2 {
   font-size: 36px;
   margin: 20px;
 }
-#section1 p {
+section p {
   font-size: 18px;
   color: #7b7b7b;
 }
-#section1 p:last-child {
+section p:last-child {
   margin-bottom: 20px;
 }
 .bg_div1 {
@@ -92,11 +91,19 @@
   opacity: 1;
 }
 .bg_div1:hover {
-  background: rgba(48, 143, 220, 0.7);
+  background-image: linear-gradient(
+    to right,
+    rgba(79, 172, 254, 0.5) 0%,
+    rgba(0, 242, 254, 0.5) 100%
+  );
 }
 /* Snap 아이템의 호버 효과 스타일 */
 .snap-item.hover-effect .bg_div1 {
-  background: rgba(48, 143, 220, 0.7);
+  background-image: linear-gradient(
+    to right,
+    rgba(79, 172, 254, 0.5) 0%,
+    rgba(0, 242, 254, 0.5) 100%
+  );
 }
 
 .snap-item.hover-effect h3 {
