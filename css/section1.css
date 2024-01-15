@@ -1,0 +1,117 @@
+#section1 {
+  width: 100%;
+  height: 620px;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+#snap_div {
+  display: flex;
+  overflow: hidden;
+  scroll-snap-type: x mandatory; /* x 방향으로 스냅 효과를 활성화합니다. */
+  white-space: nowrap; /* 가로로 나열되도록 합니다. */
+  scroll-behavior: smooth; /* 부드러운 스크롤을 활성화합니다. */
+  width: 100%;
+  color: white;
+}
+
+.snap-item {
+  flex: 0 0 92%;
+  height: 400px;
+  width: 80vw;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start; /* 각각의 아이템이 시작점에 스냅되도록 설정합니다. */
+  margin-right: 20px;
+}
+
+#snap1 {
+  background-image: url("../images/ev1.jpg");
+}
+#text_div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#snap2 {
+  background-image: url("../images/ev2.jpg");
+}
+#snap3 {
+  background-image: url("../images/ev3.jpg");
+}
+
+#section1 #text_div1 {
+}
+#section1 h2 {
+  font-size: 36px;
+  margin: 20px;
+}
+#section1 p {
+  font-size: 18px;
+  color: #7b7b7b;
+}
+#section1 p:last-child {
+  margin-bottom: 20px;
+}
+.bg_div1 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg_div1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg_div1 h3 {
+  transition: transform 0.5s ease;
+}
+
+.bg_div1 p {
+  transition: opacity 0.5s ease;
+  opacity: 0; /* 초기에는 숨김 상태로 설정합니다. */
+}
+.bg_div1 .hidden_div {
+  transition: opacity 0.5s ease;
+  opacity: 0; /* 초기에는 숨김 상태로 설정합니다. */
+}
+
+.bg_div1:hover h3 {
+  transform: translateY(-30px); /* h3가 호버 시 위로 이동하도록 설정합니다. */
+}
+
+.bg_div1:hover p {
+  opacity: 1; /* p가 호버 시 나타나도록 설정합니다. */
+}
+.bg_div1:hover .hidden_div {
+  opacity: 1;
+}
+.bg_div1:hover {
+  background: rgba(48, 143, 220, 0.7);
+}
+/* Snap 아이템의 호버 효과 스타일 */
+.snap-item.hover-effect .bg_div1 {
+  background: rgba(48, 143, 220, 0.7);
+}
+
+.snap-item.hover-effect h3 {
+  transform: translateY(-30px);
+}
+
+.snap-item.hover-effect p {
+  opacity: 1;
+}
+
+.snap-item.hover-effect .hidden_div {
+  opacity: 1;
+}
+
+/* 호버 상태일 때의 효과를 터치 상태로 대체하기 위한 클래스 */
+.hover-effect {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}

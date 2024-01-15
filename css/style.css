@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+/* 헤더 */
+header {
+  width: 100%;
+  height: 100vh;
+  background: gray;
+}
+/* 비디오 */
+#header_video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+}
+#motion {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: white;
+  padding: 20px;
+}
+#motion h3 {
+  font-size: 46px;
+  line-height: 45px;
+}
+#motion p {
+  font-size: 20px;
+  margin: 30px 0 120px 0;
+}
+
+/* 비디오 안에 흘러가는 바 */
+#progress-bar-container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #ddd;
+  height: 3px;
+  position: relative;
+  border-radius: 10px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  position: absolute;
+}
+
+#time-display {
+  text-align: center;
+  margin-top: 10px;
+}
+/* Nav */
+#main_nav {
+  position: fixed;
+  width: 100%;
+  height: 68px;
+
+  padding: 0 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+#main_nav.scrolled{
+    background-color: #fff; /* 스크롤 시 배경색 변경 */
+    color: #000; /* 스크롤 시 텍스트 색상 변경 */
+    transition: 0.5s;
+    border-bottom: 1px solid #0072bc ;
+  }
+  #main_nav h2.scrolled{
+    color: #0072bc;
+  }
+  #main_nav h2 p.scrolled{
+    color: #808285;
+  }
+  #main_nav #right_Help.scrolled{
+    background-color: #0072bc;
+  }
+
+#gnb_div ul {
+  display: flex;
+  display: none;
+}
+
+#gnb_div li {
+  list-style: none;
+  margin: 0 30px;
+}
+/* 우측 */
+#icon_div {
+  display: none;
+}
+#right_Help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  background: rgba(133, 133, 133, 0.5);
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 30px;
+  border: none;
+}
+/* 숨김 토글 메뉴 */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+#checkbox {
+  display: none;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* 초기에는 화면 밖으로 숨겨둠 */
+  width: 100%;
+  /* 메뉴 너비 조절 */
+  height: 100%;
+  background-color: #fff;
+
+  box-sizing: border-box;
+  transition: right 0.5s ease; /* 우측으로 나타나고 사라지는 애니메이션 적용 */
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu li {
+  margin-bottom: 15px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+/* <!-- 인풋 검색창 --> */
+#input_div {
+  width: 100%;
+  height: 80px;
+  background: #e4f2fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#input_div input {
+  width: 95%;
+  height: 45px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  position: relative;
+}
+#hidden_ul div {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#hidden_ul a {
+  font-weight: bold;
+}
+#hidden_ul i {
+  color: black;
+  cursor: pointer;
+}
+#hidden_ul input {
+  display: none;
+}
+.uluu {
+  font-size: 16px;
+  background: #f3f3f3;
+  width: 100%;
+  height: auto;
+  display: none;
+}
+#progress-bar-container {
+  width: 80%;
+  height: 2px; /* 로딩바의 높이 조절 */
+  background-color: #bbb; /* 흰색으로 변경 */
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  width: 0;
+  height: 80%;
+  background-color: #fff; /* 로딩바의 색상 (녹색) */
+  transition: width 0.3s; /* 부드럽게 흘러가도록 설정 */
+}
+
+/* 이하 동일한 코드들 */
