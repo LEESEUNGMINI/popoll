@@ -23,37 +23,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 스냅
-
 let isDragging = false;
 let startX = 0;
 let scrollLeft = 0;
 
 const snapDiv = document.getElementById("snap_div");
 
-snapDiv.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.pageX - snapDiv.offsetLeft;
-  scrollLeft = snapDiv.scrollLeft;
-  snapDiv.style.cursor = "grabbing";
-});
+snapDiv.addEventListener("mousedown", handleMouseDown);
+snapDiv.addEventListener("touchstart", handleTouchStart);
 
-snapDiv.addEventListener("mouseleave", () => {
-  isDragging = false;
-  snapDiv.style.cursor = "grab";
-});
+snapDiv.addEventListener("mouseleave", handleMouseLeave);
+snapDiv.addEventListener("touchcancel", handleTouchCancel);
 
-snapDiv.addEventListener("mouseup", () => {
-  isDragging = false;
-  snapDiv.style.cursor = "grab";
-});
+snapDiv.addEventListener("mouseup", handleMouseUp);
+snapDiv.addEventListener("touchend", handleTouchEnd);
 
-snapDiv.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - snapDiv.offsetLeft;
-  const walk = (x - startX) * 2;
-  snapDiv.scrollLeft = scrollLeft - walk;
-});
+snapDiv.addEventListener("mousemove", handleMouseMove);
+snapDiv.addEventListener("touchmove", handleTouchMove);
 
 // 스크롤 중에 부드러운 효과를 위해 requestAnimationFrame을 사용합니다.
 let isScrolling = false;
@@ -67,3 +53,54 @@ snapDiv.addEventListener("scroll", () => {
   }
   isScrolling = true;
 });
+
+function handleMouseDown(e) {
+  startDragging(e.pageX - snapDiv.offsetLeft);
+}
+
+function handleTouchStart(e) {
+  startDragging(e.touches[0].pageX - snapDiv.offsetLeft);
+}
+
+function handleMouseLeave() {
+  stopDragging();
+}
+
+function handleTouchCancel() {
+  stopDragging();
+}
+
+function handleMouseUp() {
+  stopDragging();
+}
+
+function handleTouchEnd() {
+  stopDragging();
+}
+
+function handleMouseMove(e) {
+  moveScroll(e.pageX - snapDiv.offsetLeft);
+}
+
+function handleTouchMove(e) {
+  moveScroll(e.touches[0].pageX - snapDiv.offsetLeft);
+}
+
+function startDragging(x) {
+  isDragging = true;
+  startX = x;
+  scrollLeft = snapDiv.scrollLeft;
+  snapDiv.style.cursor = "grabbing";
+}
+
+function stopDragging() {
+  isDragging = false;
+  snapDiv.style.cursor = "grab";
+}
+
+function moveScroll(x) {
+  if (!isDragging) return;
+  event.preventDefault();
+  const walk = (x - startX) * 2;
+  snapDiv.scrollLeft = scrollLeft - walk;
+}
